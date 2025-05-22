@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Pet Adoption</title>
+    <style>
+        .button-86, .button-87 {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            font-weight: bold;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .button-86:hover, .button-87:hover {
+            transform: scale(1.05);
+        }
+
+        .button-86 a, .button-87 {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            .button-86, .button-87 {
+                font-size: 0.9rem;
+                padding: 0.5rem 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .button-86, .button-87 {
+                font-size: 0.8rem;
+                padding: 0.4rem 0.8rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo">Pet Adoption</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="adoptable-pets.html">Adoptable Pets</a></li>
+                <li><a href="adoption-process.html">Adoption Process</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Find Your <span id="element"></span></h1>
+        <p>Join us in giving a loving home to pets in need.</p>
+        <a href="adoptable-pets.html"  class="button-87" role="button">View Adoptable Pets</a>
+    </section>
+
+    <section class="featured-pets">
+        <h2>Featured Pets</h2>
+        <div class="pet-grid">
+            <div class="pet-card" data-species="dog">
+                <img src="assets/labrador.webp" alt="Pet 1">
+                <h3>Buddy</h3>
+                <p>Age: 2 years</p>
+                <p>Breed: Labrador</p>
+                <a href="pet-details-buddy.html" class="adopt-button">Adopt Me!</a>
+            </div>
+            <div class="pet-card" data-species="cat">
+                <img src="assets/domestic-shorthair.jpg" alt="Pet 2">
+                <h3>Whiskers</h3>
+                <p>Age: 1 year</p>
+                <p>Breed: Domestic Shorthair</p>
+                <a href="pet-details-whiskers.html" class="adopt-button">Adopt Me!</a>
+            </div>
+            <div class="pet-card" data-species="dog">
+                <img src="/assets/beagle.jpeg" alt="Pet 3">
+                <h3>Max</h3>
+                <p>Age: 3 years</p>
+                <p>Breed: Beagle</p>
+                <a href="pet-details-max.html" class="adopt-button">Adopt Me!</a>
+            </div>
+            <div class="pet-card" data-species="dog">
+                <img src="/assets/images.jpeg" alt="Pet 4">
+                <h3>Lucy</h3>
+                <p>Age: 4 years</p>
+                <p>Breed: Poodle</p>
+                <a href="pet-details-lucy.html" class="adopt-button">Adopt Me!</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="about-preview">
+        <h2>About Us</h2>
+        <p>We are dedicated to finding loving homes for pets in need. Our mission is to connect pets with their forever
+            families.</p>
+            <button class="button-86" role="button"><a href="about.html" class="learn-more">Learn More</a></button>
+        
+
+    </section>
+
+    <section class="testimonials">
+        <testimonialtitle>
+            <h2>What Our Adopters Say</h2>
+        </testimonialtitle>
+        <blockquote>
+            "Adopting from this organization changed my life! I found the perfect companion." - Jane D.
+        </blockquote>
+        <blockquote>
+            "The process was easy, and the staff was so helpful. Highly recommend!" - John S.
+        </blockquote>
+    </section>
+
+<footer class="footer">
+    <p>&copy; 2023 Pet Adoption. All rights reserved.</p>
+    <div class="social-media">
+        <a href="#">Facebook</a>
+        <a href="#">Instagram</a>
+        <a href="#">Twitter</a>
+    </div>
+</footer>
+
+    
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+
+    <script>
+        var typed = new Typed('#element', {
+          strings: ['<i>FOREVER FRIEND</i> .', ' PET PARTNER.', ' COMPANION.'],
+          typeSpeed: 50,
+          loop: true,
+          backSpeed: 50,
+        });
+      </script>
+
+</body>
+
+</html>

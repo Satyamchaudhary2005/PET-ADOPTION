@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Adoptable Pets</title>
+    <style>
+        .pet-card.hidden {
+            display: none;
+        }
+        
+        .search-filter {
+            margin: 1.5rem auto;
+            padding: 1.2rem;
+            text-align: center;
+            background-color: #f8f9fa;
+            border-radius: 12px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 90%;
+        }
+
+        .search-filter h2 {
+            color: #333;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .search-filter input,
+        .search-filter select {
+            padding: 0.5rem 0.8rem;
+            margin: 0.3rem;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            min-width: 150px;
+        }
+
+        .search-filter input:focus,
+        .search-filter select:focus {
+            outline: none;
+            border-color: #ff9800;
+            box-shadow: 0 0 3px rgba(255, 152, 0, 0.3);
+        }
+
+        .search-filter button {
+            padding: 0.5rem 1rem;
+            background-color: #ff9800;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-top: 0.3rem;
+        }
+
+        .search-filter button:hover {
+            background-color: #ff5722;
+            transform: translateY(-1px);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .search-filter button:active {
+            transform: translateY(0);
+        }
+
+        @media (max-width: 768px) {
+            .search-filter {
+                padding: 0.8rem;
+            }
+
+            .search-filter input,
+            .search-filter select {
+                width: 70%;
+                margin: 0.3rem auto;
+                display: block;
+            }
+
+            .search-filter button {
+                width: 70%;
+                margin: 0.5rem auto;
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">Pet Adoption</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="adoptable-pets.html">Adoptable Pets</a></li>
+                <li><a href="adoption-process.html">Adoption Process</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="search-filter">
+        <h2>Find Your Perfect Pet</h2>
+        <input type="text" placeholder="Search by name..." id="search-bar">
+        <select id="species-filter">
+            <option value="">All Species</option>
+            <option value="dog">Dogs</option>
+            <option value="cat">Cats</option>
+            <option value="other">Other</option>
+        </select>
+        <button id="filter-button">Filter</button>
+    </section>
+
+    <section class="pets-list">
+        <h2>Available Pets for Adoption</h2>
+        <div class="pet-grid">
+            <div class="pet-card">
+                <img src="assets/labrador.webp" alt="Buddy the Labrador">
+
+                <h3>Buddy</h3>
+                <p>Age: 2 years</p>
+                <p>Breed: Labrador</p>
+                <a href="pet-details-buddy.html" class="adopt-button">Adopt Me!</a>
+            </div>
+            <div class="pet-card">
+                <img src="assets/domestic-shorthair.jpg" alt="Whiskers the Cat">
+
+                <h3>Whiskers</h3>
+                <p>Age: 1 year</p>
+                <p>Breed: Domestic Shorthair</p>
+                <a href="pet-details-whiskers.html" class="adopt-button">Adopt Me!</a>
+            </div>
+            <div class="pet-card">
+                <img src="assets/beagle.jpeg" alt="Max the Beagle">
+
+                <h3>Max</h3>
+                <p>Age: 3 years</p>
+                <p>Breed: Beagle</p>
+                <a href="pet-details-max.html" class="adopt-button">Adopt Me!</a>
+            </div>
+            <div class="pet-card">
+                <img src="assets/domestic-shorthair.jpg" alt="Lucy the Cat">
+
+                <h3>Lucy</h3>
+                <p>Age: 4 years</p>
+                <p>Breed: Poodle</p>
+                <a href="pet-details-lucy.html" class="adopt-button">Adopt Me!</a>
+            </div>
+            <div class="pet-card">
+                <img src="assets/domestic-shorthair.jpg" alt="Oliver the Cat">
+
+                <h3>Oliver</h3>
+                <p>Age: 2 years</p>
+                <p>Breed: Tabby Cat</p>
+                <a href="pet-details-oliver.html" class="adopt-button">Adopt Me!</a>
+            </div>
+            <div class="pet-card">
+                <img src="assets/labrador.webp" alt="Charlie the Labrador">
+
+                <h3>Charlie</h3>
+                <p>Age: 5 years</p>
+                <p>Breed: Golden Retriever</p>
+                <a href="pet-details-charlie.html" class="adopt-button">Adopt Me!</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2023 Pet Adoption. All rights reserved.</p>
+        <div class="social-media">
+            <a href="#">Facebook</a>
+            <a href="#">Instagram</a>
+            <a href="#">Twitter</a>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchBar = document.getElementById('search-bar');
+            const speciesFilter = document.getElementById('species-filter');
+            const filterButton = document.getElementById('filter-button');
+            const petCards = document.querySelectorAll('.pet-card');
+
+            function filterPets() {
+                const searchTerm = searchBar.value.toLowerCase();
+                const selectedSpecies = speciesFilter.value.toLowerCase();
+
+                petCards.forEach(card => {
+                    const petName = card.querySelector('h3').textContent.toLowerCase();
+                    const petBreed = card.querySelector('p:nth-child(3)').textContent.toLowerCase();
+                    
+                    // Check if pet name matches search term
+                    const nameMatches = petName.includes(searchTerm);
+                    
+                    // Check if species matches filter
+                    let speciesMatches = true;
+                    if (selectedSpecies) {
+                        if (selectedSpecies === 'dog') {
+                            speciesMatches = petBreed.includes('labrador') || 
+                                          petBreed.includes('beagle') || 
+                                          petBreed.includes('retriever') ||
+                                          petBreed.includes('poodle');
+                        } else if (selectedSpecies === 'cat') {
+                            speciesMatches = petBreed.includes('cat') || 
+                                          petBreed.includes('tabby');
+                        }
+                    }
+
+                    // Show/hide card based on both filters
+                    if (nameMatches && speciesMatches) {
+                        card.classList.remove('hidden');
+                    } else {
+                        card.classList.add('hidden');
+                    }
+                });
+            }
+
+            // Add event listeners
+            searchBar.addEventListener('input', filterPets);
+            speciesFilter.addEventListener('change', filterPets);
+            filterButton.addEventListener('click', filterPets);
+        });
+    </script>
+</body>
+</html>

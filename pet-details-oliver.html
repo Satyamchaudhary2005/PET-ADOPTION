@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Pet Details</title>
+    <style>
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            max-width: 600px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+            position: relative;
+        }
+        .close-modal {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #666;
+        }
+        .faq-item {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #eee;
+        }
+        .faq-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        .faq-question {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+        .faq-answer {
+            color: #666;
+            line-height: 1.5;
+        }
+        .modal.show {
+            display: flex;
+        }
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        .form-group label {
+            font-weight: 600;
+            color: #333;
+        }
+        .form-group input,
+        .form-group textarea {
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 1rem;
+        }
+        .form-group textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+        .submit-button {
+            background-color: #ff9800;
+            color: white;
+            padding: 1rem;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .submit-button:hover {
+            background-color: #ff5722;
+        }
+        .success-message {
+            display: none;
+            color: #4CAF50;
+            text-align: center;
+            margin-top: 1rem;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">Pet Adoption</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="adoptable-pets.html">Adoptable Pets</a></li>
+                <li><a href="adoption-process.html">Adoption Process</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="pet-details">
+        <h2>Meet Oliver</h2>
+        <div class="pet-info">
+            <div class="pet-gallery">
+                <img src="assets/domestic-shorthair.jpg" alt="Oliver the Cat" class="main-image">
+
+            </div>
+            <div class="details">
+                <p><strong>Age:</strong> 2 years</p>
+                <p><strong>Breed:</strong> Tabby Cat</p>
+                <p><strong>Size:</strong> Medium (10 lbs)</p>
+                <div class="pet-characteristics">
+                    <span class="characteristic energy-high">Playful</span>
+                    <span class="characteristic pet-friendly">Independent</span>
+                    <span class="characteristic kid-friendly">Mouse Hunter</span>
+                </div>
+                <p><strong>Description:</strong> Oliver is a handsome tabby with striking markings and a playful personality. He enjoys chasing toys and watching birds from the window. Oliver is litter-trained and gets along well with other cats. He would do best in a home with plenty of vertical space to climb.</p>
+                <div class="health-info">
+                    <h3>Health Information</h3>
+                    <p><strong>Vaccinations:</strong> Up to date</p>
+                    <p><strong>Spay/Neuter:</strong> Neutered</p>
+                    <p><strong>Microchip:</strong> Yes</p>
+                </div>
+                <p><strong>Adoption Fee:</strong> ₹2,800 (includes initial vet visit)</p>
+                <div class="action-buttons">
+                    <a href="adoption-process.html" class="adopt-button">Adopt Me!</a>
+                    <button class="inquire-button">Ask About Oliver</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="related-pets">
+        <h3>Other Pets You Might Like</h3>
+        <div class="pet-grid">
+            <div class="pet-card">
+                <img src="assets/domestic-shorthair.jpg" alt="Whiskers the Cat">
+
+                <h3>Whiskers</h3>
+                <p>Age: 1 year</p>
+                <p>Breed: Domestic Shorthair</p>
+                <div class="quick-info">
+                    <span class="characteristic">Low Maintenance</span>
+                    <span class="characteristic">Lap Cat</span>
+                </div>
+                <a href="pet-details-whiskers.html" class="adopt-button">Adopt Me!</a>
+            </div>
+            <div class="pet-card">
+                <img src="assets/labrador.webp" alt="Charlie the Dog">
+
+                <h3>Charlie</h3>
+                <p>Age: 5 years</p>
+                <p>Breed: Golden Retriever</p>
+                <div class="quick-info">
+                    <span class="characteristic">Gentle</span>
+                    <span class="characteristic">Family Dog</span>
+                </div>
+                <a href="pet-details-charlie.html" class="adopt-button">Adopt Me!</a>
+            </div>
+            <div class="pet-card">
+                <img src="assets/domestic-shorthair.jpg" alt="Lucy the Cat">
+
+                <h3>Lucy</h3>
+                <p>Age: 4 years</p>
+                <p>Breed: Poodle</p>
+                <div class="quick-info">
+                    <span class="characteristic">Hypoallergenic</span>
+                    <span class="characteristic">Smart</span>
+                </div>
+                <a href="pet-details-lucy.html" class="adopt-button">Adopt Me!</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2023 Pet Adoption. All rights reserved.</p>
+        <div class="social-media">
+            <a href="#">Facebook</a>
+            <a href="#">Instagram</a>
+            <a href="#">Twitter</a>
+        </div>
+    </footer>
+
+    <div class="modal" id="inquiryModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Frequently Asked Questions about Oliver</h2>
+            <div class="faq-item">
+                <div class="faq-question">What is Oliver's personality like?</div>
+                <div class="faq-answer">Oliver is a handsome tabby with a playful and independent personality. He enjoys chasing toys, watching birds from the window, and has a natural hunting instinct. He's affectionate but also values his independence.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Is Oliver good with children and other pets?</div>
+                <div class="faq-answer">Oliver gets along well with other cats and is generally good with children who understand how to interact gently with cats. He would do best in a home with older children who respect his space.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Is Oliver litter-trained?</div>
+                <div class="faq-answer">Yes, Oliver is fully litter-trained and very clean. He's particular about his litter box and keeps himself well-groomed.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Does Oliver need a lot of attention?</div>
+                <div class="faq-answer">Oliver enjoys attention but is also independent. He'll seek out affection when he wants it but is happy to entertain himself with toys or by watching birds. He would do well in a home where people are present but not constantly interacting with him.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">What kind of home would be best for Oliver?</div>
+                <div class="faq-answer">Oliver would thrive in a home with plenty of vertical space to climb and explore. He enjoys having window perches and high places to observe his surroundings. A home with other cats would be fine, but he also does well as the only cat.</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="adoptionModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Adoption Request Form</h2>
+            <form class="contact-form" id="adoptionForm">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="address">Address</label>
+                    <textarea id="address" name="address" required></textarea>
+                </div>
+                <button type="submit" class="submit-button">Submit Adoption Request</button>
+                <div class="success-message" id="successMessage">
+                    Thank you for your interest! We'll contact you soon.
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const modal = document.getElementById('inquiryModal');
+        const inquireButton = document.querySelector('.inquire-button');
+        const closeModal = document.querySelector('.close-modal');
+        inquireButton.addEventListener('click', () => {
+            modal.classList.add('show');
+        });
+        closeModal.addEventListener('click', () => {
+            modal.classList.remove('show');
+        });
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.classList.remove('show');
+            }
+        });
+
+        // Adoption form handling
+        const adoptionModal = document.getElementById('adoptionModal');
+        const adoptionForm = document.getElementById('adoptionForm');
+        const successMessage = document.getElementById('successMessage');
+        const mainAdoptButton = document.querySelector('.action-buttons .adopt-button');
+
+        mainAdoptButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            adoptionModal.classList.add('show');
+        });
+
+        adoptionForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const formData = {
+                name: document.getElementById('name').value,
+                phone: document.getElementById('phone').value,
+                address: document.getElementById('address').value,
+                petName: 'Oliver',
+                timestamp: new Date().toISOString()
+            };
+
+            try {
+                // Replace with your actual backend endpoint
+                const response = await fetch('http://localhost:3001/api/adoption-requests', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(formData)
+                });
+
+                if (response.ok) {
+                    successMessage.style.display = 'block';
+                    adoptionForm.reset();
+                    setTimeout(() => {
+                        adoptionModal.classList.remove('show');
+                        successMessage.style.display = 'none';
+                    }, 3000);
+                } else {
+                    alert('There was an error submitting your request. Please try again.');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('There was an error submitting your request. Please try again.');
+            }
+        });
+
+        // Close adoption modal
+        const closeAdoptionModal = adoptionModal.querySelector('.close-modal');
+        closeAdoptionModal.addEventListener('click', () => {
+            adoptionModal.classList.remove('show');
+        });
+
+        window.addEventListener('click', (e) => {
+            if (e.target === adoptionModal) {
+                adoptionModal.classList.remove('show');
+            }
+        });
+    </script>
+</body>
+</html>
